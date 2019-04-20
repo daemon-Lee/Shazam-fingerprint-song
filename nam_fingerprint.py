@@ -66,11 +66,13 @@ def fingerprint_audio_shazam(file_name, debug=False, n_fft=DEFAULT_NFFT, overlap
         plt.show()
 
     star = zip(freq_idx, time_idx)
-    star.sort(key=itemgetter(1, 0))
+    #star.sort(key=itemgetter(1, 0))
+    sorted(star, key=itemgetter(1, 0))
     star = np.asarray(star)
 
     fingerprints = list()
-    star_length = len(star)
+    #star_length = len(star)
+    star_length = int(star.size/2)
 
     for i in range(star_length):
         for j in range(1, fan_value):
